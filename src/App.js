@@ -4,7 +4,7 @@ import { SelectToon } from "./select-toon";
 import { Typography, Container, LinearProgress } from "@material-ui/core";
 import { RunsTable } from "./runs";
 import { CurrentWeekAffixes } from "./current-week-affixes";
-import "./styles.scss";
+import "./styles.css";
 import axios from "axios";
 
 export const App = () => {

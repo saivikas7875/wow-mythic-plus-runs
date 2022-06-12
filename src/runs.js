@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Container from "@material-ui/core/Container";
-import "./styles.scss";
+import "./styles.css";
 
 export const RunsTable = (props) => {
   if (!props.runs) return null;

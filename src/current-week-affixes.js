@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
-import "./styles.scss";
+import "./styles.css";
 
 export const CurrentWeekAffixes = (props) => {
   const region = props.region ? props.region : "us";
