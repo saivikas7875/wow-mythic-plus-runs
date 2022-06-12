@@ -3,6 +3,7 @@ import { NavBar } from "./header";
 import { SelectToon } from "./select-toon";
 import { Typography, Container, LinearProgress } from "@material-ui/core";
 import { RunsTable } from "./runs";
+import { Footer } from "./footer";
 import { CurrentWeekAffixes } from "./current-week-affixes";
 import "./styles.css";
 import axios from "axios";
@@ -41,6 +42,7 @@ export const App = () => {
         <CurrentWeekAffixes />
       </Container>
       {showProgress ? <LinearProgress /> : <RunsTable runs={runs} />}
+      <Footer />
     </div>
   );
 };

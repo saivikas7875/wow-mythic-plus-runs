@@ -22,3 +22,18 @@
 .total {
   font-weight: bold;
 }
+
+.link {
+  margin-left: 5px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+}
