@@ -4,7 +4,10 @@ import "./styles.css";
 
 const Regions = [
   { key: "us", text: "US", value: "us" },
-  { key: "eu", text: "EU", value: "eu" }
+  { key: "eu", text: "EU", value: "eu" },
+  { key: "tw", text: "TW", value: "tw" },
+  { key: "kr", text: "KR", value: "kr" },
+  { key: "cn", text: "CN", value: "cn" }
 ];
 
 export const SelectToon = (props) => {
@@ -13,10 +16,11 @@ export const SelectToon = (props) => {
   const [character, setCharacter] = React.useState("");
   const [isLoading, toggleLoader] = React.useState(false);
 
+  const curateRealm = (realm) => realm.replace("'", "");
   const handleClick = async () => {
     try {
       toggleLoader(true);
-      await props.fetchRuns(region, realm, character);
+      await props.fetchRuns(region, curateRealm(realm), character);
     } finally {
       toggleLoader(false);
     }

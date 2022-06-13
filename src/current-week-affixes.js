@@ -23,7 +23,9 @@ export const CurrentWeekAffixes = (props) => {
 
   return (
     <Header className="current-week-affixes" as="h4">
-      {`Affixes this week: ${affixes.title}`}
+      {affixes.title
+        ? `Affixes this week: ${affixes.title}`
+        : "Raider.io seems to be down right now. Please check back later."}
     </Header>
   );
 };

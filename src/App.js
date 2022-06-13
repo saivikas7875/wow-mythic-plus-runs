@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { NavBar } from "./header";
 import { SelectToon } from "./select-toon";
-import { Container, Loader, Header } from "semantic-ui-react";
+import { Container, Loader, Header, Divider } from "semantic-ui-react";
 import { RunsTable } from "./runs";
 import { CurrentWeekAffixes } from "./current-week-affixes";
 import "./styles.css";
 import axios from "axios";
+import { SearchWithURL } from "./search-with-url";
 
 export const App = () => {
   const [runs, setRuns] = useState(null);
@@ -23,6 +24,7 @@ export const App = () => {
       );
 
       setRuns(keys);
+      showError(false);
     } catch (e) {
       console.log(e);
       showError(e.response.data.message);
@@ -52,6 +54,8 @@ export const App = () => {
       <NavBar />
       <Container>
         <SelectToon fetchRuns={fetchRuns} />
+        <Divider horizontal>Or</Divider>
+        <SearchWithURL fetchRuns={fetchRuns} />
         <CurrentWeekAffixes />
         {showData()}
       </Container>
