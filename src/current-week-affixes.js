@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Typography from "@material-ui/core/Typography";
+import { Header } from "semantic-ui-react";
 import axios from "axios";
 import "./styles.css";
 
@@ -22,6 +22,8 @@ export const CurrentWeekAffixes = (props) => {
   }, [region]);
 
   return (
-    <Typography variant="h6">{`Affixes this week: ${affixes.title}`}</Typography>
+    <Header className="current-week-affixes" as="h4">
+      {`Affixes this week: ${affixes.title}`}
+    </Header>
   );
 };

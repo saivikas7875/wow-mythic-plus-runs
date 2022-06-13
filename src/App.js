@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { NavBar } from "./header";
 import { SelectToon } from "./select-toon";
-import { Typography, Container, LinearProgress } from "@material-ui/core";
+import { Container, Loader, Header } from "semantic-ui-react";
 import { RunsTable } from "./runs";
-import { Footer } from "./footer";
 import { CurrentWeekAffixes } from "./current-week-affixes";
 import "./styles.css";
 import axios from "axios";
@@ -11,6 +10,7 @@ import axios from "axios";
 export const App = () => {
   const [runs, setRuns] = useState(null);
   const [showProgress, toggleProgress] = useState(false);
+  const [error, showError] = useState("");
 
   async function fetchRuns(region, realm, name) {
     toggleProgress(true);
@@ -24,25 +24,37 @@ export const App = () => {
 
       setRuns(keys);
     } catch (e) {
+      console.log(e);
+      showError(e.response.data.message);
     } finally {
       toggleProgress(false);
     }
   }
 
+  console.log(error);
+
+  const showData = () => {
+    if (showProgress) {
+      return <Loader />;
+    } else if (error) {
+      return (
+        <Header className="current-week-affixes" as="h3">
+          {error}
+        </Header>
+      );
+    }
+
+    return <RunsTable runs={runs} />;
+  };
+
   return (
-    <div>
+    <React.Fragment>
       <NavBar />
-      <Container
-        classes={{
-          root: "select-toon-wrapper"
-        }}
-      >
-        <Typography variant="h6">Select Character</Typography>
+      <Container>
         <SelectToon fetchRuns={fetchRuns} />
         <CurrentWeekAffixes />
+        {showData()}
       </Container>
-      {showProgress ? <LinearProgress /> : <RunsTable runs={runs} />}
-      <Footer />
-    </div>
+    </React.Fragment>
   );
 };

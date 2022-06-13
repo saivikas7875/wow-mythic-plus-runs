@@ -1,6 +1,9 @@
-.nav-bar {
-  display: flex;
-  justify-content: center;
+#root {
+  height: 100%;
+}
+
+.current-week-affixes {
+  text-align: center;
 }
 
 .select-toon-wrapper {
@@ -23,17 +26,32 @@
   font-weight: bold;
 }
 
-.link {
-  margin-left: 5px;
+.total h3 {
+  color: white !important;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
+.link {
+  display: flex;
+  align-items: center;
+}
+
+.link p {
+  margin-bottom: 0;
 }
 
 .footer-content {
   display: flex;
   justify-content: center;
+  position: sticky;
+}
+
+.footer-image {
+  max-height: 18px;
+  margin-left: 5px;
+}
+
+.nav-bar {
+  border-radius: 0 !important;
+  justify-content: center;
+  align-items: center;
 }

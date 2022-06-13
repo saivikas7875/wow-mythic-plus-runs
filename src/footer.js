@@ -1,24 +1,23 @@
 import React from "react";
-import { Typography, Container, LinearProgress, Link } from "@material-ui/core";
+import { Menu } from "semantic-ui-react";
 import "./styles.css";
 
 export const Footer = () => {
-  const preventDefault = (event) => event.preventDefault();
-
   return (
-    <Container className="footer">
-      <div className="footer-content">
-        <Typography>
-          Application data is from
-          <Link
-            className="link"
-            href="https://raider.io/"
-            onClick={preventDefault}
-          >
-            raider.io
-          </Link>
-        </Typography>
-      </div>
-    </Container>
+    <div className="footer-content">
+      <a
+        className="link"
+        href="https://raider.io/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <p>Data is from</p>
+        <img
+          className="footer-image"
+          src="https://cdnassets.raider.io/images/brand/Logo_Black.png"
+          alt="raider.io"
+        />
+      </a>
+    </div>
   );
 };
